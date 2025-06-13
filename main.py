@@ -33,7 +33,7 @@ while True:
 
     #Option_3: Realizar pedido.
     elif option == '3':
-        pass
+        realizar_pedido()
     #Option_3
 
     #Option_4: Ver pedidos.
