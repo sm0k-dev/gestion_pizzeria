@@ -76,14 +76,28 @@ Stock: {pizza['stock']}""")
 
 #REALIZAR_PEDIDO
 def realizar_pedido():
+    #RequestCodeID
     codigo = int(input("Ingrese el código: "))
+
+    #FindRequestedCodeID
     for pizza in pizzas:
+        #IfFound
         if pizza['codigo'] == codigo:
+            #PizzaInfo
             print(f"Nombre: {pizza['nombre']}, Stock disponbile: {pizza['stock']}")
+
+            #RequestAmountToBuy
             cantidad = int(input("Cantidad a comprar: "))
+
+            #ValidAmountToBuy
             if cantidad <= pizza['stock']:
+                #DiscountStock
                 pizza['stock'] -= cantidad
+
+                #TotalPrice
                 total = cantidad * pizza['precio']
+
+                #Register
                 pedido = {
                     "nombre": pizza['nombre'],
                     "cantidad": pizza['cantidad'],
@@ -92,10 +106,12 @@ def realizar_pedido():
                 pedidos.append(pedido)
                 print(f"Compra realizada por ${total} CLP.")
                 return
+                #Register
+            #InvalidAmountToBuy
             else:
                 print("No hay suficiente stock.")
                 return
+    #NotFound
     print("Pizza no encontrada.")
 #REALIZAR_PEDIDO
-            
 #Functions
