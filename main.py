@@ -6,6 +6,7 @@ menu = """\n=== GESTIÓN DE PEDIDOS ===
 1) Registrar nuevas pizzas disponibles para la venta.
 2) Ver el catálogo de pizzas.
 3) Realizar un pedido.
+4) Ver pedidos realizados.
 0) Salir del sistema."""
 #MenuText
 #Menu
@@ -29,6 +30,10 @@ while True:
     elif option == '3':
         pass
     #Option_3
+    #Option_4: Ver pedidos.
+    elif option == '4':
+        pass
+    #Option_4
     #Option_0: Salir del sistema.
     elif option == '0':
         print("...Saliendo del sistema...")
