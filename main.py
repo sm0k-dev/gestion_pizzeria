@@ -28,7 +28,7 @@ while True:
         
     #Option_2: Ver catálogo pizzas.
     elif option == '2':
-        pass
+        ver_catalogo()
     #Option_2
 
     #Option_3: Realizar pedido.
@@ -46,6 +46,7 @@ while True:
         print("...Saliendo del sistema...")
         time.sleep(1)
     #Option_0
+        
     #OptionError
     else:
         print("Error. Opción inválida.")

@@ -4,6 +4,7 @@ masas = ("Tradicional", "Delgada", "Borde de queso mozzarella", "Parmesan Crunch
 #Resources
 
 #Functions
+#REGISTRAR_PIZZA
 def registrar_pizza():
 
    #Welcome
@@ -51,4 +52,19 @@ def registrar_pizza():
     }
     pizzas.append(pizza)
     print("Pizza registrada correctamente.")
+#REGISTRAR_PIZZA
+    
+#VER_CATÁLOGO
+def ver_catalogo():
+    if not pizzas:
+        print("No hay pizzas en el catálogo.")
+    else:
+        for pizza in pizzas:
+            print(f"""{"="*10}\nCódigo: {pizza['codigo']}
+Nombre: {pizza['nombre']}
+Masa: {pizza['masa']}
+Precio: {pizza['precio']}
+Stock: {pizza['stock']}""")
+#VER_CATÁLOGO
+
 #Functions
