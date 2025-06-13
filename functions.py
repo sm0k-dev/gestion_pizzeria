@@ -13,7 +13,7 @@ def registrar_pizza():
     #Identification
     #CodeID
     print("""\n== ASIGNAR CÓDIGO ==""")
-    codigo = int(input("Ingrese el código: "))
+    codigo = validar_codigo_unico()
     #CodeID
 
     #Name
@@ -30,19 +30,19 @@ def registrar_pizza():
     #DoughAvailable
         
     #DoughSelect
-    seleccion_masa = int(input(f"Seleccione tipo de masa (1-{i+1}): "))
+    seleccion_masa = validar_entero_positivo(f"Seleccione tipo de masa (1-{i+1}): ")
     masa = masas[seleccion_masa-1]
     #DoughSelect
     #Dough
     
     #Price
     print("\n== ASIGNAR PRECIO ==")
-    precio = float("Ingrese el precio: ")
+    precio = validar_precio()
     #Price
     
     #Stock
     print("\n== ASIGNAR STOCK ==")
-    stock = int("Ingrese stock disponible: ")
+    stock = validar_entero_positivo("Ingrese stock disponible: ")
     #Stock
     
     #Register
@@ -77,7 +77,7 @@ Stock: {pizza['stock']}""")
 #REALIZAR_PEDIDO
 def realizar_pedido():
     #RequestCodeID
-    codigo = int(input("Ingrese el código: "))
+    codigo = validar_codigo()
 
     #FindRequestedCodeID
     for pizza in pizzas:
@@ -87,7 +87,7 @@ def realizar_pedido():
             print(f"Nombre: {pizza['nombre']}, Stock disponbile: {pizza['stock']}")
 
             #RequestAmountToBuy
-            cantidad = int(input("Cantidad a comprar: "))
+            cantidad = validar_entero_positivo("Cantidad a comprar: ")
 
             #ValidAmountToBuy
             if cantidad <= pizza['stock']:
@@ -128,3 +128,44 @@ Cantidad: {pedido['cantidad']}
 Total pagado: {pedido['total']}""")
 #VER_PEDIDOS
 #Functions
+            
+#ErrorControls
+#VALIDAR_CODIGO
+def validar_codigo():
+    while True:
+        cod = input("Asigne código a la pizza: ")
+        if cod.isdigit() and int(cod) >= 1:
+            return int(cod)
+        print("Error. El código debe ser un número entero mayor o igual a 1.")
+#VALIDAR_CODIGO
+        
+#VALIDAR_CODIGO_UNICO
+def validar_codigo_unico(codigo):
+    while True:
+        for pizza in pizzas:
+            if pizza['codigo'] == codigo:
+                print("Error: Ya existe una pizza con ese código.")
+                return False
+        return True
+#VALIDAR_CODIGO_UNICO
+    
+#VALIDAR_PRECIO
+def validar_precio():
+    while True:
+        try:
+            precio = float(input("Ingrese el precio: "))
+            if precio > 0:
+                return precio
+        except:
+            print("Error. Debe ingresar un número positivo válido.")
+#VALIDAR_PRECIO:
+            
+#VALIDAR_ENTERO_POSITIVO
+def validar_entero_positivo(mensaje="Ingrese un número: "):
+    while True:
+        num = input(mensaje)
+        if num.isdigit() and int(num) > 0:
+            return int(num)
+        print("Error. Debe ingresar un número entero mayor a 0.")
+#VALIDAR_ENTERO_POSITIVO
+#ErrorControls
