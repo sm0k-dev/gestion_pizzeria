@@ -20,7 +20,7 @@ while True:
     #Options
     #Option_1: Registrar pizzas.
     if option == '1':
-        pass
+        registrar_pizza()
     #Option_1
     #Option_2: Ver catálogo pizzas.
     elif option == '2':
