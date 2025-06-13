@@ -38,7 +38,7 @@ while True:
 
     #Option_4: Ver pedidos.
     elif option == '4':
-        pass
+        ver_pedidos()
     #Option_4
 
     #Option_0: Salir del sistema.

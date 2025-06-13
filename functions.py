@@ -114,4 +114,17 @@ def realizar_pedido():
     #NotFound
     print("Pizza no encontrada.")
 #REALIZAR_PEDIDO
+
+#VER_PEDIDOS
+def ver_pedidos():
+    #Exist?
+    if not pedidos:
+        print("No hay pedidos registrados.")
+    #ShowList
+    else:
+        for pedido in pedidos:
+            print(f"""\nPizza: {pedido['nombre']}
+Cantidad: {pedido['cantidad']}
+Total pagado: {pedido['total']}""")
+#VER_PEDIDOS
 #Functions
